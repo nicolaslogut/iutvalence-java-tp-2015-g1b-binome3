@@ -1,26 +1,28 @@
 package fr.iutvalence.gunb.turnthelight;
 
 /**
- * Objet permettant de jouer. C'est le type d'ojbets le plus haut dans la hiérarchie des objets.
- * 
- * Une partie permet de définir une Grille, de l'initialiser et de prtésenter une situation de départ au joueur. 
- * C'est égalemet la partie qui définit les conditions pour remporter le jeu et qui contient les données de jeu comme le score, le nombre de coups, etc...
- * 
+ * Partie du jeu.
+ * <p>
+ * Une partie permet de dÃ©finir une Grille, de l'initialiser et de prÃ©senter une situation de dÃ©part au joueur.
+ * C'est Ã©galemet la partie qui dÃ©finit les conditions pour remporter le jeu et qui contient les donnÃ©es de jeu
+ * comme le score, le nombre de coups, etc...
  *
  * @see Grille
- * 
+ * @author TODO
+ * @version TODO
  */
+public class Partie {
+    /* TODO JAVADOC. */
+    /* TODO Pourquoi dans un attribut ? */
+    private boolean partieGagnee = false;
+    /* TODO JAVADOC. */
+    /* TODO Final ? */
+    private Grille grilleDeBase;
+    /* TODO Il n'y a pas de joueur ? Ni de temps ou nombre de tours ? */
 
-public class Partie 
-{
-	
-	private boolean partieGagnee = false;
-	private Grille grilleDeBase;
-	
-	public Partie()
-	{
-		
-	}
-	
-	
+
+    /* TODO JAVADOC. */
+    public Partie() {
+        /* TODO un peu vide... */
+    }
 }
