@@ -9,9 +9,9 @@ package fr.iutvalence.gunb.turnthelight;
  * Dans chaque emplacement de la grille on a une Lampe.
  * Le nombre de lampe dans la grille varie selon la taille de celle-ci.
  *
- * @see Lampe
+ * @see Light
  */
-public class Grille {
+public class Grid {
     /* TODO JAVADOC. */
     public static final int NB_LIGNES        = 5;
     /* TODO JAVADOC. */
