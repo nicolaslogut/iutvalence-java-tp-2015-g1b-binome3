@@ -31,6 +31,7 @@ public class Group {
      * Creation of the group, using his GroupType. 
      *
      * @param type
+     * @see GroupType
      */
     public Group(GroupType type) 
     {
@@ -38,11 +39,21 @@ public class Group {
         this.nbLights = type.getNbLightAdjacent();
     }
     
+    /**
+     * Get the GroupType of a Group.
+     * 
+     * @return typeOfTheGroup
+     * @see GroupType
+     */
     public GroupType getTheGroup()
     {
     	return this.typeOfTheGroup;
     }
-    
+    /**
+     * Get the number of adjacent lights of a Group.
+     * 
+     * @return nbLights
+     */
     public int getTheAdjacentLightsNb()
     {
     	return this.nbLights;

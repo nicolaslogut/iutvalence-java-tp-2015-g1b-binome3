@@ -24,20 +24,39 @@ public class Light {
     /** current state */
     private final boolean isOn;
     
-    private final Group groupOfTheLight;
+    private Group groupOfTheLight;
 
 
     /**
      * light creation.
      * <p>
      * We use in parameters the initial state of the light and his position in the grid (linePosition, columnPosition)
+     * The position of the light will define his group.
+     * 
+     * @see Group
+     * @see GroupType
+     * @param lightState, x, y
      */
     public Light(boolean lightState, int x, int y) 
     {
         isOn = lightState;
-        if (((x == 0) && (y == 0)) || ((x == Grid.NB_LIGNES - 1) && (y == 0)) || ((x == 0) && )  )
+        if (((x == 0) && (y == 0)) || ((x == Grid.NB_LINES - 1) && (y == 0)) || ((x == 0) && (y == Grid.NB_COLUMNS - 1)) || ((x == Grid.NB_LINES - 1) && (y == Grid.NB_COLUMNS - 1)))
         {
-        	
+        	Group Corner = new Group(GroupType.CORNER);
+        	this.groupOfTheLight = Corner;
+        }
+        else
+        {
+        	if (((x == 0) && (y != 0) && (y != Grid.NB_COLUMNS - 1)) || ((x == Grid.NB_LINES - 1) && (y != 0) && (y != Grid.NB_COLUMNS - 1)) || ((y == 0) && (x != 0) && (x != Grid.NB_COLUMNS - 1)) || ((y == Grid.NB_LINES - 1) && (x != 0) && (x != Grid.NB_COLUMNS - 1)) )
+        	{
+        		Group Edge = new Group(GroupType.EDGE);
+        		this.groupOfTheLight = Edge;
+        	}
+        	else
+        	{
+        		Group Center = new Group(GroupType.CENTER);
+        		this.groupOfTheLight = Center;
+        	}
         }
     }
 
@@ -46,6 +65,8 @@ public class Light {
      * <p>
      * The light is ON if she was OFF and OFF if it was ON.
      */
-    public void changerEtatLampe() {
+    public void changerEtatLampe() 
+    {
+    	
     }
 }

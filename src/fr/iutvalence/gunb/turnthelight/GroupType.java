@@ -29,7 +29,7 @@ public enum GroupType
 	/**
 	 *get the number of adjacent lights of a GroupType. 
 	 *
-	 * @return
+	 * @return nbLightAdjacent
 	 */
 	public int getNbLightAdjacent()
 	{
