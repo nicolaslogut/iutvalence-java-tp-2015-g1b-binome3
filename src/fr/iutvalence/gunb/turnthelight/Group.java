@@ -15,48 +15,43 @@ package fr.iutvalence.gunb.turnthelight;
  * @see Light
  */
 public class Group {
-
-
-
-	/**
-	 * The type of the group, which define the number of adjacents lights
-	 * 
-	 * @see GroupType
-	 */
-    private GroupType    typeOfTheGroup;
-    
-    private int	nbLights;
-    
     /**
-     * Creation of the group, using his GroupType. 
+     * The type of the group, which define the number of adjacents lights.
      *
-     * @param type
      * @see GroupType
      */
-    public Group(GroupType type) 
-    {
+    private GroupType typeOfTheGroup;
+    /* TODO NbLights is linked to GroupType and obtain from it… Why use this class and not directly GroupType ? */
+    /* TODO JAVADOC. */
+    private int       nbLights;
+
+    /**
+     * Creation of the group, using his GroupType.
+     *
+     * @see GroupType
+     */
+    public Group(GroupType type) {
         this.typeOfTheGroup = type;
         this.nbLights = type.getNbLightAdjacent();
     }
-    
+
     /**
      * Get the GroupType of a Group.
-     * 
+     *
      * @return typeOfTheGroup
+     *
      * @see GroupType
      */
-    public GroupType getTheGroup()
-    {
-    	return this.typeOfTheGroup;
+    public GroupType getTheGroup() {
+        return this.typeOfTheGroup;
     }
+
     /**
      * Get the number of adjacent lights of a Group.
-     * 
+     *
      * @return nbLights
      */
-    public int getTheAdjacentLightsNb()
-    {
-    	return this.nbLights;
+    public int getTheAdjacentLightsNb() {
+        return this.nbLights;
     }
-    
 }
