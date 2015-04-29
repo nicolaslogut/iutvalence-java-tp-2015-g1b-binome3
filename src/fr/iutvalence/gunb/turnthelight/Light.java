@@ -1,5 +1,6 @@
 package fr.iutvalence.gunb.turnthelight;
 
+
 /**
  * The main object of the game. All the game is made around the lights.
  * <p>
@@ -22,7 +23,7 @@ public class Light {
     
     public static final boolean OFF = false;
     /** current state */
-    private final boolean isOn;
+    private boolean isOn;
     
     private Group groupOfTheLight;
 
@@ -67,6 +68,6 @@ public class Light {
      */
     public void changerEtatLampe() 
     {
-    	
+    	this.isOn = !this.isOn;
     }
 }

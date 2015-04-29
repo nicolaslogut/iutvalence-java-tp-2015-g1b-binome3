@@ -28,6 +28,24 @@ public class Grid {
      */
     public Grid() {
         Light gridOfLights[][] = new Light[this.NB_LINES][this.NB_COLUMNS];
+        int x = 0;
+		int y = 0;
+        
+        for (int i=0; i<this.NB_LINES; i++){
+        	
+        	for (int j=0; j<this.NB_COLUMNS; j++){
+        		
+        		gridOfLights[i][j] = new Light(false, x, y);
+        		y++;
+        	}
+        	x++;
+        }
+        
+    }
+    
+    @Override
+    public String toString() {
+    	
     }
 }
 

@@ -31,7 +31,7 @@ public class Game {
     /**
      * The score of the player. It ranks the different players with their number of trials (and maybe their game time).
      */
-    private       int    Score;
+    private       int    score;
 
     /**
      * Game creation. Using in parameters the grid and the player.
@@ -45,6 +45,16 @@ public class Game {
         /* TODO Nickname should not be asked in Game but rather in its caller. */
         String pseudo = Player.askPseudo();
         this.player1 = new Player(pseudo);
-        /* TODO Init of all the other fields ? */
+        this.nbTrials = 0;
+        this.score = 0;
+    }
+    
+    public void start()	{
+    	System.out.println(gridOfTheGame);
+    	
+    	/* TODO afficher la grille */
+    	/* TODO initialiser les lampes et créer la situation de départ */
+    	/* TODO donner la main au joueur et agir en fonction de ses clics */
+    	/* TODO vérifier après chaque coup si la partie est gagnée ou non */
     }
 }
