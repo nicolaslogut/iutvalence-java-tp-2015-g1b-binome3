@@ -24,8 +24,14 @@ public class Light {
     public static final boolean OFF = false;
     /** current state */
     private boolean isOn;
-    
+    /** */
     private Group groupOfTheLight;
+    /** */
+    private Group Corner = new Group(GroupType.CORNER);
+    /** */
+    private Group Edge = new Group(GroupType.EDGE);
+    /** */
+    private Group Center = new Group(GroupType.CENTER);
 
 
     /**
@@ -40,22 +46,19 @@ public class Light {
      */
     public Light(boolean lightState, int x, int y) 
     {
-        isOn = lightState;
+        this.isOn = lightState;
         if (((x == 0) && (y == 0)) || ((x == Grid.NB_LINES - 1) && (y == 0)) || ((x == 0) && (y == Grid.NB_COLUMNS - 1)) || ((x == Grid.NB_LINES - 1) && (y == Grid.NB_COLUMNS - 1)))
         {
-        	Group Corner = new Group(GroupType.CORNER);
         	this.groupOfTheLight = Corner;
         }
         else
         {
         	if (((x == 0) && (y != 0) && (y != Grid.NB_COLUMNS - 1)) || ((x == Grid.NB_LINES - 1) && (y != 0) && (y != Grid.NB_COLUMNS - 1)) || ((y == 0) && (x != 0) && (x != Grid.NB_COLUMNS - 1)) || ((y == Grid.NB_LINES - 1) && (x != 0) && (x != Grid.NB_COLUMNS - 1)) )
-        	{
-        		Group Edge = new Group(GroupType.EDGE);
+        	{	
         		this.groupOfTheLight = Edge;
         	}
         	else
         	{
-        		Group Center = new Group(GroupType.CENTER);
         		this.groupOfTheLight = Center;
         	}
         }
@@ -66,8 +69,33 @@ public class Light {
      * <p>
      * The light is ON if she was OFF and OFF if it was ON.
      */
-    public void changerEtatLampe() 
+    public void changeLightState() 
     {
     	this.isOn = !this.isOn;
+    }
+    
+    public void changeAdjacentLightState(int xMainLight, int yMainLight){
+    	if (this.groupOfTheLight == Corner){
+    		int count = 0;
+    		while (count < this.groupOfTheLight.getTheNbOfAdjacentLights()){
+    			if (((xMainLight + 1) >= 0) && ((xMainLight + 1) <= Grid.NB_LINES)){
+    				
+    			}
+    			if (((xMainLight - 1) >= 0) && ((xMainLight - 1) <= Grid.NB_LINES)){
+    				
+    			}
+    			if (((yMainLight + 1) >= 0) && ((yMainLight + 1) <= Grid.NB_LINES)){
+    				
+    			}
+    			if (((yMainLight - 1) >= 0) && ((yMainLight - 1) <= Grid.NB_LINES)){
+    				
+    			}
+    			
+    		}
+    	}
+    }
+    
+    public String toString() {
+    	return isOn ? "O" : "X";
     }
 }

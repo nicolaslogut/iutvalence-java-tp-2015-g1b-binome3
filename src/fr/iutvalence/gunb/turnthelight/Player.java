@@ -32,15 +32,6 @@ public class Player {
         
     }
 
-    /* TODO Should not be implemented here... */
-    /** Ask the nickname to the player and return it after the data entry. */
-    public static String askPseudo() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Please enter your nickname :");
-        String pseudo = sc.nextLine();
-        return pseudo;
-    }
-
     /** Save the statistics of the game of the player. */
     public void saveRecordPlayer(int score, int trials) {
         this.scorePlayer = score;

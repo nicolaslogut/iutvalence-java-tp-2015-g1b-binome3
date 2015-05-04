@@ -15,11 +15,11 @@ public class Game {
     /**
      * The board game where the we will play. The most important object of the game.
      */
-    private final Grid   gridOfTheGame;
+    private final Grid   grid;
     /**
      * The player of the Game. It will allow to register the best records.
      */
-    private final Player player1;
+    private final Player player;
     /**
      * A boolean that define if the game is ended or not.
      */
@@ -40,20 +40,25 @@ public class Game {
      * @see Grid
      * @see Player
      */
-    public Game() {
-        this.gridOfTheGame = new Grid();
-        /* TODO Nickname should not be asked in Game but rather in its caller. */
-        String pseudo = Player.askPseudo();
-        this.player1 = new Player(pseudo);
+    public Game(String nickname) {
+        this.grid = new Grid();
+        this.player = new Player(nickname);
         this.nbTrials = 0;
         this.score = 0;
     }
     
+    
+    public void initialisation(){
+        grid.swap(0, 0);
+    }
+    
     public void start()	{
-    	System.out.println(gridOfTheGame);
+    	System.out.println(grid);
+        initialisation();
+    	System.out.println(grid);
+
     	
-    	/* TODO afficher la grille */
-    	/* TODO initialiser les lampes et créer la situation de départ */
+    	
     	/* TODO donner la main au joueur et agir en fonction de ses clics */
     	/* TODO vérifier après chaque coup si la partie est gagnée ou non */
     }

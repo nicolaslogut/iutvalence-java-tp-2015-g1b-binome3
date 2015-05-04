@@ -51,7 +51,7 @@ public class Group {
      *
      * @return nbLights
      */
-    public int getTheAdjacentLightsNb() {
+    public int getTheNbOfAdjacentLights() {
         return this.nbLights;
     }
 }
