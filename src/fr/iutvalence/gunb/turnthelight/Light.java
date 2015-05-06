@@ -24,14 +24,15 @@ public class Light {
     public static final boolean OFF = false;
     /** current state */
     private boolean isOn;
-    /** */
+    /** The group where is situated the light */
     private Group groupOfTheLight;
-    /** */
-    private Group Corner = new Group(GroupType.CORNER);
-    /** */
-    private Group Edge = new Group(GroupType.EDGE);
-    /** */
-    private Group Center = new Group(GroupType.CENTER);
+    
+    /** The variable corresponding to the group of lights in the corners */
+    public static Group Corner = new Group(GroupType.CORNER);
+    /** The variable corresponding to the group of lights in the edges */
+    public static Group Edge = new Group(GroupType.EDGE);
+    /** The variable corresponding to the group of lights in the center */
+    public static Group Center = new Group(GroupType.CENTER);
 
 
     /**
@@ -74,25 +75,8 @@ public class Light {
     	this.isOn = !this.isOn;
     }
     
-    public void changeAdjacentLightState(int xMainLight, int yMainLight){
-    	if (this.groupOfTheLight == Corner){
-    		int count = 0;
-    		while (count < this.groupOfTheLight.getTheNbOfAdjacentLights()){
-    			if (((xMainLight + 1) >= 0) && ((xMainLight + 1) <= Grid.NB_LINES)){
-    				
-    			}
-    			if (((xMainLight - 1) >= 0) && ((xMainLight - 1) <= Grid.NB_LINES)){
-    				
-    			}
-    			if (((yMainLight + 1) >= 0) && ((yMainLight + 1) <= Grid.NB_LINES)){
-    				
-    			}
-    			if (((yMainLight - 1) >= 0) && ((yMainLight - 1) <= Grid.NB_LINES)){
-    				
-    			}
-    			
-    		}
-    	}
+    public Group getTheGroup(){
+    	return this.groupOfTheLight;
     }
     
     public String toString() {

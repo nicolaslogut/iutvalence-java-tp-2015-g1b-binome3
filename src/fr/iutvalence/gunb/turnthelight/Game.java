@@ -1,5 +1,7 @@
 package fr.iutvalence.gunb.turnthelight;
 
+import java.util.Scanner;
+
 /**
  * Game. That is the class that contains all the game actions, executions, and informations.
  * <p>
@@ -52,10 +54,29 @@ public class Game {
         grid.swap(0, 0);
     }
     
+    private static int askAbsciss(){
+    	Scanner sc2 = new Scanner(System.in);
+        System.out.println("Please enter the absciss of the light you want switch :");
+        return sc2.nextInt();
+    }
+    
+    private static int askOrdinate(){
+    	Scanner sc3 = new Scanner(System.in);
+        System.out.println("Please enter the ordinate of the light you want switch :");
+        return sc3.nextInt();
+    }
+    
     public void start()	{
     	System.out.println(grid);
         initialisation();
     	System.out.println(grid);
+    	int xAsk = askAbsciss();
+    	int yAsk = askOrdinate();
+    	grid.swap(xAsk,yAsk);
+    	grid.changeAdjacentLightState(xAsk, yAsk);
+    	System.out.println(grid);
+    	
+    	
 
     	
     	

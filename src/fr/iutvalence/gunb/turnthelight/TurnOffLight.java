@@ -1,6 +1,3 @@
-/**
- * 
- */
 package fr.iutvalence.gunb.turnthelight;
 
 import java.util.Scanner;
@@ -26,4 +23,6 @@ public class TurnOffLight {
         System.out.println("Please enter your nickname :");
         return sc.nextLine();
     }
+    
+    
 }

@@ -40,6 +40,75 @@ public class Grid {
     	gridOfLights[x][y].changeLightState();
     }
     
+    public void changeAdjacentLightState(int xMainLight, int yMainLight){
+    	if (gridOfLights[xMainLight][yMainLight].getTheGroup() == Light.Corner){
+    		int count = 0;
+    		while (count < gridOfLights[xMainLight][yMainLight].getTheGroup().getTheNbOfAdjacentLights()){
+    			if (((xMainLight + 1) >= 0) && ((xMainLight + 1) <= Grid.NB_LINES)){
+    				swap((xMainLight + 1), yMainLight);
+    				count++;
+    			}
+    			if (((xMainLight - 1) >= 0) && ((xMainLight - 1) <= Grid.NB_LINES)){
+    				swap((xMainLight - 1), yMainLight);
+    				count++;
+    			}
+    			if (((yMainLight + 1) >= 0) && ((yMainLight + 1) <= Grid.NB_LINES)){
+    				swap(xMainLight, (yMainLight + 1));
+    				count++;
+    			}
+    			if (((yMainLight - 1) >= 0) && ((yMainLight - 1) <= Grid.NB_LINES)){
+    				swap(xMainLight, (yMainLight - 1));
+    				count++;
+    			}
+    			
+    		}
+    	}
+    	if (gridOfLights[xMainLight][yMainLight].getTheGroup() == Light.Edge){
+    		int count = 0;
+    		while (count < gridOfLights[xMainLight][yMainLight].getTheGroup().getTheNbOfAdjacentLights()){
+    			if (((xMainLight + 1) >= 0) && ((xMainLight + 1) <= Grid.NB_LINES)){
+    				swap((xMainLight + 1), yMainLight);
+    				count++;
+    			}
+    			if (((xMainLight - 1) >= 0) && ((xMainLight - 1) <= Grid.NB_LINES)){
+    				swap((xMainLight - 1), yMainLight);
+    				count++;
+    			}
+    			if (((yMainLight + 1) >= 0) && ((yMainLight + 1) <= Grid.NB_LINES)){
+    				swap(xMainLight, (yMainLight + 1));
+    				count++;
+    			}
+    			if (((yMainLight - 1) >= 0) && ((yMainLight - 1) <= Grid.NB_LINES)){
+    				swap(xMainLight, (yMainLight - 1));
+    				count++;
+    			}
+    			
+    		}
+    	}
+    	if (gridOfLights[xMainLight][yMainLight].getTheGroup() == Light.Center){
+    		int count = 0;
+    		while (count < gridOfLights[xMainLight][yMainLight].getTheGroup().getTheNbOfAdjacentLights()){
+    			if (((xMainLight + 1) >= 0) && ((xMainLight + 1) <= Grid.NB_LINES)){
+    				swap((xMainLight + 1), yMainLight);
+    				count++;
+    			}
+    			if (((xMainLight - 1) >= 0) && ((xMainLight - 1) <= Grid.NB_LINES)){
+    				swap((xMainLight - 1), yMainLight);
+    				count++;
+    			}
+    			if (((yMainLight + 1) >= 0) && ((yMainLight + 1) <= Grid.NB_LINES)){
+    				swap(xMainLight, (yMainLight + 1));
+    				count++;
+    			}
+    			if (((yMainLight - 1) >= 0) && ((yMainLight - 1) <= Grid.NB_LINES)){
+    				swap(xMainLight, (yMainLight - 1));
+    				count++;
+    			}
+    			
+    		}
+    	}
+    }
+    
     @Override
     public String toString() {
     	StringBuilder sb = new StringBuilder();

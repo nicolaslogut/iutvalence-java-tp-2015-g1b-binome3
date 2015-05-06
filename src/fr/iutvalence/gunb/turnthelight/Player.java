@@ -1,4 +1,4 @@
-package fr.iutvalence.gunb.turnthelight;
+ package fr.iutvalence.gunb.turnthelight;
 
 import java.util.Scanner;
 
