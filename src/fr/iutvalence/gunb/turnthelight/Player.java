@@ -1,19 +1,15 @@
- package fr.iutvalence.gunb.turnthelight;
-
-import java.util.Scanner;
+package fr.iutvalence.gunb.turnthelight;
 
 /**
- * 
  * The Object that references all the data of the Player of the Game.
  * <p>
- * The player is the human entity that play to the game. 
+ * The player is the human entity that play to the game.
  * So his game have some informations about his level and his capacities like the score or the number of trials.
  * When a game is created, a player is automatically created.
  *
  * @author dazyj
  * @version 1.1
  * @see Game
- *
  */
 public class Player {
     /** PLayer's nickname. */
@@ -29,7 +25,6 @@ public class Player {
         this.nickname = pseudoPlayer;
         this.scorePlayer = 0;
         this.nbTrialsPlayer = 0;
-        
     }
 
     /** Save the statistics of the game of the player. */

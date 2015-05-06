@@ -38,19 +38,13 @@ public class Group {
     /**
      * Get the GroupType of a Group.
      *
-     * @return typeOfTheGroup
-     *
      * @see GroupType
      */
     public GroupType getTheGroup() {
         return this.typeOfTheGroup;
     }
 
-    /**
-     * Get the number of adjacent lights of a Group.
-     *
-     * @return nbLights
-     */
+    /** Get the number of adjacent lights of a Group. */
     public int getTheNbOfAdjacentLights() {
         return this.nbLights;
     }
