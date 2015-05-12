@@ -22,7 +22,7 @@ public class Group {
      */
     private GroupType typeOfTheGroup;
     /* TODO NbLights is linked to GroupType and obtain from it… Why use this class and not directly GroupType ? */
-    /* TODO JAVADOC. */
+    /** The number of lights of the group. */
     private int       nbLights;
 
     /**

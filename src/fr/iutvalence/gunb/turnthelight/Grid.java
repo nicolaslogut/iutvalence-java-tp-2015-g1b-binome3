@@ -2,27 +2,25 @@ package fr.iutvalence.gunb.turnthelight;
 
 import java.util.Arrays;
 
-/* TODO Translate. */
-
 /**
- * Support principal du jeu. C'est le type d'objets au dessus du Groupe dans l'échelle des objets.
+ * Main support of the game. That is the object that allow the player to play the game with graphics properties.
+ * The grid is an important element of the game's structure.
  * <p>
- * Dans chaque emplacement de la grille on a une Lampe.
- * Le nombre de lampe dans la grille varie selon la taille de celle-ci.
+ * In each case of the grid, there is a light.
+ * The number of lights in the grid is varying with the size of it.
  *
  * @author dazyj
  * @version 1.0
  * @see Light
  */
 public class Grid {
-    /** TODO. */
+	/** The number of lines of the grid. */
     public static final int NB_LINES       = 5;
-    /** TODO. */
+    /** The number of columns of the grid. */
     public static final int NB_COLUMNS     = 5;
-    /* TODO unused? */
     /** The number of lights in the grid. */
     public static final int NB_GRID_LIGHTS = NB_LINES * NB_COLUMNS;
-    /** TODO. */
+    /** A table of lights, that represents the grid. */
     private final Light[][] gridOfLights;
 
     /**
@@ -30,6 +28,7 @@ public class Grid {
      * <p>
      * We create a table with 2 entries, which contain the lights that will be use in the game.
      */
+    
     public Grid() {
         gridOfLights = new Light[NB_LINES][NB_COLUMNS];
 
@@ -41,13 +40,28 @@ public class Grid {
         }
     }
 
-    /* TODO JAVADOC. */
+    /**
+     * Change the state of a light that is situated precisely in the Grid.
+     * x = the absciss of the light.
+     * y = the ordinate of the light.
+     * 
+     * @param x
+     * @param y
+     */
+    
     public void swap(int x, int y) {
         gridOfLights[x][y].changeLightState();
     }
 
-    /* TODO Use another name closer to swap. */
-    /* TODO JAVADOC */
+    /**
+     * Change the state of all the adjacent lights of the main light (specified in parameter)
+     * xMainLight = the absciss of the main light 
+     * yMainLight = the ordinate of the main light
+     * 
+     * @param xMainLight
+     * @param yMainLight
+     */
+    
     public void changeAdjacentLightState(int xMainLight, int yMainLight) {
         /* TODO This algorithm is really really *really* bad… */
         if (gridOfLights[xMainLight][yMainLight].getTheGroup() == Light.Corner) {
@@ -61,11 +75,11 @@ public class Grid {
                     swap(xMainLight - 1, yMainLight);
                     count++;
                 }
-                if (((yMainLight + 1) >= 0) && ((yMainLight + 1) <= NB_LINES)) {
+                if (((yMainLight + 1) >= 0) && ((yMainLight + 1) <= NB_COLUMNS)) {
                     swap(xMainLight, yMainLight + 1);
                     count++;
                 }
-                if (((yMainLight - 1) >= 0) && ((yMainLight - 1) <= NB_LINES)) {
+                if (((yMainLight - 1) >= 0) && ((yMainLight - 1) <= NB_COLUMNS)) {
                     swap(xMainLight, yMainLight - 1);
                     count++;
                 }
@@ -82,11 +96,11 @@ public class Grid {
                     swap(xMainLight - 1, yMainLight);
                     count++;
                 }
-                if (((yMainLight + 1) >= 0) && ((yMainLight + 1) <= NB_LINES)) {
+                if (((yMainLight + 1) >= 0) && ((yMainLight + 1) <= NB_COLUMNS)) {
                     swap(xMainLight, yMainLight + 1);
                     count++;
                 }
-                if (((yMainLight - 1) >= 0) && ((yMainLight - 1) <= NB_LINES)) {
+                if (((yMainLight - 1) >= 0) && ((yMainLight - 1) <= NB_COLUMNS)) {
                     swap(xMainLight, yMainLight - 1);
                     count++;
                 }
@@ -103,16 +117,41 @@ public class Grid {
                     swap(xMainLight - 1, yMainLight);
                     count++;
                 }
-                if (((yMainLight + 1) >= 0) && ((yMainLight + 1) <= NB_LINES)) {
+                if (((yMainLight + 1) >= 0) && ((yMainLight + 1) <= NB_COLUMNS)) {
                     swap(xMainLight, yMainLight + 1);
                     count++;
                 }
-                if (((yMainLight - 1) >= 0) && ((yMainLight - 1) <= NB_LINES)) {
+                if (((yMainLight - 1) >= 0) && ((yMainLight - 1) <= NB_COLUMNS)) {
                     swap(xMainLight, yMainLight - 1);
                     count++;
                 }
             }
         }
+    }
+    
+    /**
+     * Test the "state" of the grid. We verify the state of all the lights in the grid.
+     * If the grid is full of lights switched OFF, the method returns true.
+     * Else the method return false.
+     * 
+     * @return
+     */
+    
+    public boolean testGrid() {
+    	int count = 0;
+    	for (int i = 0; i < NB_LINES; i++){
+    		for (int j = 0; j < NB_COLUMNS; j++){
+    			if (gridOfLights[i][j].isOn){
+    				count++;
+    			}
+    		}
+    	}
+    	if (count == 0){
+    		return true;
+    	}
+    	else{
+    		return false;
+    	}
     }
 
     @Override

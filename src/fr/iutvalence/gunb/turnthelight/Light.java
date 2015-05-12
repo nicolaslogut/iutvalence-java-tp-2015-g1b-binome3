@@ -13,9 +13,9 @@ package fr.iutvalence.gunb.turnthelight;
  * @see Grid
  */
 public class Light {
-    /* TODO JAVADOC. */
+	/** The state of the light when it is switched ON. */
     public static final boolean ON     = true;
-    /* TODO JAVADOC. */
+    /** The state of the light when it is switched OFF. */
     public static final boolean OFF    = false;
     /* TODO I really don't understand these Groupe… */
     /** The variable corresponding to the group of lights in the corners. */
@@ -25,7 +25,7 @@ public class Light {
     /** The variable corresponding to the group of lights in the center. */
     public static       Group   Center = new Group(GroupType.CENTER);
     /** Current state. */
-    private boolean isOn;
+    public boolean isOn;
     /** The group where is situated the light. */
     private Group   groupOfTheLight;
 

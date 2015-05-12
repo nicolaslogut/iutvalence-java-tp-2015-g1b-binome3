@@ -2,7 +2,6 @@ package fr.iutvalence.gunb.turnthelight;
 
 import java.util.Scanner;
 
-
 /**
  * Game. That is the class that contains all the game actions, executions, and informations.
  * <p>
@@ -14,6 +13,7 @@ import java.util.Scanner;
  * @see Grid
  * @see Player
  */
+
 public class Game {
     /**
      * The board game where the we will play. The most important object of the game.
@@ -51,39 +51,58 @@ public class Game {
         this.score = 0;
     }
 
-    /* TODO JAVADOC. */
+    /**
+     * Ask the Absciss of a light.
+     * It is a function which is used to ask to the player the absciss of the light he wants to swap.
+     *  
+     * @return
+     */
+    
     private static int askAbsciss() {
-        // TODO Why use all these scanners?
-        Scanner sc2 = new Scanner(System.in);
+    	Scanner sc2 = new Scanner(System.in);
         System.out.println("Please enter the absciss of the light you want switch :");
         return sc2.nextInt();
     }
 
-    /* TODO JAVADOC. */
+    /**
+     * Ask the Ordinate of a light.
+     * It is a function which is used to ask to the player the ordinate of the light he wants to swap.
+     * @return
+     */
     private static int askOrdinate() {
-        // TODO Why use all these scanners?
-        Scanner sc3 = new Scanner(System.in);
+    	Scanner sc2 = new Scanner(System.in);
         System.out.println("Please enter the ordinate of the light you want switch :");
-        return sc3.nextInt();
+        return sc2.nextInt();
     }
 
-    // TODO Why public?
-    /* TODO JAVADOC. */
-    public void initialisation() {
+    /**
+     * Initialize all the lights of the grid for the start situation and switch them on.
+     */
+    private void initialisation() {
+        grid.swap(0, 1);
+        grid.swap(1, 0);
         grid.swap(0, 0);
     }
 
-    /* TODO JAVADOC. */
+    /**
+     * Start the game.
+     */
     public void start() {
         System.out.println(grid);
         initialisation();
         System.out.println(grid);
-        int xAsk = askAbsciss();
-        int yAsk = askOrdinate();
-        grid.swap(xAsk, yAsk);
-        grid.changeAdjacentLightState(xAsk, yAsk);
-        System.out.println(grid);
-    	/* TODO donner la main au joueur et agir en fonction de ses clics */
-    	/* TODO v�rifier apr�s chaque coup si la partie est gagn�e ou non */
+        while (this.gameIsWon == false){
+        	int xAsk = askAbsciss();
+        	int yAsk = askOrdinate();
+        	grid.swap(xAsk, yAsk);
+        	grid.changeAdjacentLightState(xAsk, yAsk);
+        	System.out.println(grid);
+        	if (grid.testGrid() == true){
+        		this.gameIsWon = true;
+        		System.out.println("You win the game !");
+        	}        	
+        
+        }	
+
     }
 }
