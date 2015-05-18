@@ -14,12 +14,11 @@ import java.util.Scanner;
  * @see Player
  */
 
-public class Game {
+public abstract class Game {
     /**
      * The board game where the we will play. The most important object of the game.
      */
-    private final Grid   grid;
-    // TODO Lots of unused fields…
+    protected final Grid   grid;
     /**
      * The player of the Game. It will allow to register the best records.
      */
@@ -32,10 +31,6 @@ public class Game {
      * The number of changements of light's states. It will help to define the score of the player.
      */
     private int nbTrials;
-    /**
-     * The score of the player. It ranks the different players with their number of trials (and maybe their game time).
-     */
-    private int score;
 
     /**
      * Game creation. Using in parameters the grid and the player.
@@ -44,11 +39,10 @@ public class Game {
      * @see Grid
      * @see Player
      */
-    public Game(String nickname) {
+    protected Game(String nickname) {
         this.grid = new Grid();
         this.player = new Player(nickname);
         this.nbTrials = 0;
-        this.score = 0;
     }
 
     /**
@@ -74,20 +68,12 @@ public class Game {
         System.out.println("Please enter the ordinate of the light you want switch :");
         return sc2.nextInt();
     }
-
-    /**
-     * Initialize all the lights of the grid for the start situation and switch them on.
-     */
-    private void initialisation() {
-        grid.swap(0, 1);
-        grid.swap(1, 0);
-        grid.swap(0, 0);
-    }
-
-    /**
+    
+    public abstract void initialisation();
+	/**
      * Start the game.
      */
-    public void start() {
+	public void start() {
         System.out.println(grid);
         initialisation();
         System.out.println(grid);
@@ -97,9 +83,12 @@ public class Game {
         	grid.swap(xAsk, yAsk);
         	grid.changeAdjacentLightState(xAsk, yAsk);
         	System.out.println(grid);
+        	this.nbTrials++;
         	if (grid.testGrid() == true){
         		this.gameIsWon = true;
-        		System.out.println("You win the game !");
+        		System.out.println("You won the game !");
+        		System.out.println("Score = ");
+        		System.out.println(this.nbTrials);
         	}        	
         
         }	

@@ -16,11 +16,34 @@ public class TurnOffLight {
 	/** The main function that execute the game, and launch the method start. */
     public static void main(String[] args) {
         String nick = askPseudo();
-        Game game = new Game(nick);
+        String lvl = asklvl();
+        Game game=null;
+        while (game == null){
+        	switch (lvl){
+        		case "EASY":
+        			game = new Easy(nick);
+        			break;
+        		case "MEDIUM":
+        			game = new Medium(nick);
+        			break;
+        		case "HARD":
+        			game = new Hard(nick);
+        			break;
+        		default:
+        			game = null;
+        	}
+        }
         game.start();
     }
 
-    /** Ask the nickname to the player and return it after the data entry. */
+    /** Ask the level to the player and return it after the data entry. */
+    private static String asklvl() {
+    	Scanner sc = new Scanner(System.in);
+    	System.out.println("Please enter the level you want : (Easy, Medium or Hard)");
+		return sc.nextLine().toUpperCase().trim();
+	}
+
+	/** Ask the nickname to the player and return it after the data entry. */
     private static String askPseudo() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Please enter your nickname :");

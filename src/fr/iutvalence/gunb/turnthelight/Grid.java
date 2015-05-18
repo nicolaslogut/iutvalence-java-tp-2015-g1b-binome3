@@ -34,7 +34,6 @@ public class Grid {
 
         for (int i = 0; i < NB_LINES; i++) {
             for (int j = 0; j < NB_COLUMNS; j++) {
-                /* TODO Why specify the initial state in the constructor if it's always "false" */
                 gridOfLights[i][j] = new Light(false, i, j);
             }
         }
@@ -63,7 +62,6 @@ public class Grid {
      */
     
     public void changeAdjacentLightState(int xMainLight, int yMainLight) {
-        /* TODO This algorithm is really really *really* bad… */
         if (gridOfLights[xMainLight][yMainLight].getTheGroup() == Light.Corner) {
             int count = 0;
             while (count < gridOfLights[xMainLight][yMainLight].getTheGroup().getTheNbOfAdjacentLights()) {
@@ -153,10 +151,23 @@ public class Grid {
     		return false;
     	}
     }
+    
+    /** 
+     * Test the state of a light.
+     * If the light is switched ON, the method returns "true"
+     * If the light is switched OFF, the method returns "false" 
+     * 
+     * @return
+     * */
+    public boolean testLight(int x, int y) {
+    	if (gridOfLights[x][y].isOn){
+    		return false;
+    	}
+    	return true;
+    }
 
     @Override
     public String toString() {
-        // TODO Put an initial size
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < NB_LINES; i++) {
             sb.append(Arrays.toString(gridOfLights[i])).append('\n');

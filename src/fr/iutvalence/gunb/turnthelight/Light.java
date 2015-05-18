@@ -17,7 +17,6 @@ public class Light {
     public static final boolean ON     = true;
     /** The state of the light when it is switched OFF. */
     public static final boolean OFF    = false;
-    /* TODO I really don't understand these Groupe… */
     /** The variable corresponding to the group of lights in the corners. */
     public static       Group   Corner = new Group(GroupType.CORNER);
     /** The variable corresponding to the group of lights in the edges. */
@@ -61,7 +60,6 @@ public class Light {
         }
     }
 
-    // TODO Simplify your method name: swap?
     /**
      * Change the state of the light.
      * <p>
@@ -71,11 +69,17 @@ public class Light {
         this.isOn = !this.isOn;
     }
 
-    // TODO Simplify your method name: group?
+    /**
+     * Return the group variable of the light.
+     * @return
+     */
     public Group getTheGroup() {
         return this.groupOfTheLight;
     }
 
+    /**
+     * Assign the symbol to the light, in function of his state.
+     */
     public String toString() {
         return isOn ? "O" : "X";
     }
