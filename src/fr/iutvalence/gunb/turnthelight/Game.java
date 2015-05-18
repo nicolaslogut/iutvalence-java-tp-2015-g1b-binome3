@@ -6,12 +6,16 @@ import java.util.Scanner;
  * Game. That is the class that contains all the game actions, executions, and informations.
  * <p>
  * A game define a grid, initialize it, and present a starting situation to the player.
- * That's the Game that define the win conditions and the game's data (number of trials, score, etc...)
+ * This starting situation depends of the level of difficulty that the player choose.
+ * That's the Game that define the win conditions and the game's data (number of trials, etc...)
  *
  * @author dazyj
  * @version 1.0
  * @see Grid
  * @see Player
+ * @see Easy
+ * @see Medium
+ * @see Hard
  */
 
 public abstract class Game {
@@ -69,8 +73,12 @@ public abstract class Game {
         return sc2.nextInt();
     }
     
+    /**
+     * Initialize the game's start situation. This method refer to the 4 different levels of game.
+     */
     public abstract void initialisation();
-	/**
+	
+    /**
      * Start the game.
      */
 	public void start() {
@@ -78,12 +86,13 @@ public abstract class Game {
         initialisation();
         System.out.println(grid);
         while (this.gameIsWon == false){
-        	int xAsk = askAbsciss();
-        	int yAsk = askOrdinate();
+        	int yAsk = askAbsciss();
+        	int xAsk = askOrdinate();
         	grid.swap(xAsk, yAsk);
         	grid.changeAdjacentLightState(xAsk, yAsk);
         	System.out.println(grid);
         	this.nbTrials++;
+        	System.out.println(this.nbTrials);
         	if (grid.testGrid() == true){
         		this.gameIsWon = true;
         		System.out.println("You won the game !");

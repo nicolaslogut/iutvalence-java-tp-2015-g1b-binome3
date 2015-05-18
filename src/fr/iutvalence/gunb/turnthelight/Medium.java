@@ -1,38 +1,40 @@
 package fr.iutvalence.gunb.turnthelight;
-import java.lang.Math;
 
+/**
+ * That is an extension from the class Game. This extension define the middle level of difficulty.
+ * This level is presenting a quota of 10 lights switched ON at the start of the game.
+ * 
+ * @author dazyj
+ * @version 1.0
+ * @see Game
+ * @see Grid
+ * */
 public class Medium extends Game {
 	
+	/**
+	 * create a game of level "medium", with the nickname of the player.
+	 * 
+	 * @param nickname
+	 */
 	public Medium(String nickname) {
 		super(nickname);
-		// TODO Auto-generated constructor stub
 	}
 	
 	/**
      * Initialize all the lights of the grid for the start situation and switch them on.
      */
 	public void initialisation() {
-		/** The random absciss to generate a light at the initialization. */
-        int xRand;
-        
-        /** The random ordinate to generate a light at the initialization. */
-        int yRand;
-        
-        /** The  number of light to generate at the initialization. */
-        int nbRand = 10;
-        
-        /** The counter of lights that has been initialized. */
-        int counter = 0;
-        
-        while (counter <= nbRand){
-        	xRand = (int) Math.random() * Grid.NB_LINES;
-        	yRand = (int) Math.random() * Grid.NB_COLUMNS;
-        	if(grid.testLight(xRand, yRand)){
-        		grid.swap(xRand, yRand);
-        		counter++;
-        	}
-        		
-       	}
+		grid.swap(0, 0);
+		grid.swap(0, Grid.NB_COLUMNS - 1);
+		grid.swap(Grid.NB_LINES - 1, 0);
+		grid.swap(Grid.NB_LINES - 1, Grid.NB_COLUMNS - 1);
+		grid.swap((Grid.NB_LINES - 1) / 2, (Grid.NB_COLUMNS - 1) / 2);
+		grid.swap(0, (Grid.NB_COLUMNS - 1) / 2);
+		grid.swap((Grid.NB_LINES - 1) / 2, 0);
+		grid.swap(Grid.NB_LINES - 1, (Grid.NB_COLUMNS - 1) / 2);
+		grid.swap((Grid.NB_LINES - 1) / 2, Grid.NB_COLUMNS - 1);
+		grid.swap((Grid.NB_LINES - 1) / 2 + 1, (Grid.NB_COLUMNS - 1) / 2);
+		
         	
     }
 	

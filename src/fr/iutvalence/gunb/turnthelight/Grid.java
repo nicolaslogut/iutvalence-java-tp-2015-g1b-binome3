@@ -65,19 +65,19 @@ public class Grid {
         if (gridOfLights[xMainLight][yMainLight].getTheGroup() == Light.Corner) {
             int count = 0;
             while (count < gridOfLights[xMainLight][yMainLight].getTheGroup().getTheNbOfAdjacentLights()) {
-                if (((xMainLight + 1) >= 0) && ((xMainLight + 1) <= NB_LINES)) {
+                if (((xMainLight + 1) >= 0) && ((xMainLight + 1) <= NB_LINES - 1)) {
                     swap(xMainLight + 1, yMainLight);
                     count++;
                 }
-                if (((xMainLight - 1) >= 0) && ((xMainLight - 1) <= NB_LINES)) {
+                if (((xMainLight - 1) >= 0) && ((xMainLight - 1) <= NB_LINES - 1)) {
                     swap(xMainLight - 1, yMainLight);
                     count++;
                 }
-                if (((yMainLight + 1) >= 0) && ((yMainLight + 1) <= NB_COLUMNS)) {
+                if (((yMainLight + 1) >= 0) && ((yMainLight + 1) <= NB_COLUMNS - 1)) {
                     swap(xMainLight, yMainLight + 1);
                     count++;
                 }
-                if (((yMainLight - 1) >= 0) && ((yMainLight - 1) <= NB_COLUMNS)) {
+                if (((yMainLight - 1) >= 0) && ((yMainLight - 1) <= NB_COLUMNS - 1)) {
                     swap(xMainLight, yMainLight - 1);
                     count++;
                 }
@@ -86,19 +86,19 @@ public class Grid {
         if (gridOfLights[xMainLight][yMainLight].getTheGroup() == Light.Edge) {
             int count = 0;
             while (count < gridOfLights[xMainLight][yMainLight].getTheGroup().getTheNbOfAdjacentLights()) {
-                if (((xMainLight + 1) >= 0) && ((xMainLight + 1) <= NB_LINES)) {
+                if (((xMainLight + 1) >= 0) && ((xMainLight + 1) <= NB_LINES - 1)) {
                     swap(xMainLight + 1, yMainLight);
                     count++;
                 }
-                if (((xMainLight - 1) >= 0) && ((xMainLight - 1) <= NB_LINES)) {
+                if (((xMainLight - 1) >= 0) && ((xMainLight - 1) <= NB_LINES - 1)) {
                     swap(xMainLight - 1, yMainLight);
                     count++;
                 }
-                if (((yMainLight + 1) >= 0) && ((yMainLight + 1) <= NB_COLUMNS)) {
+                if (((yMainLight + 1) >= 0) && ((yMainLight + 1) <= NB_COLUMNS - 1)) {
                     swap(xMainLight, yMainLight + 1);
                     count++;
                 }
-                if (((yMainLight - 1) >= 0) && ((yMainLight - 1) <= NB_COLUMNS)) {
+                if (((yMainLight - 1) >= 0) && ((yMainLight - 1) <= NB_COLUMNS - 1)) {
                     swap(xMainLight, yMainLight - 1);
                     count++;
                 }
@@ -107,19 +107,19 @@ public class Grid {
         if (gridOfLights[xMainLight][yMainLight].getTheGroup() == Light.Center) {
             int count = 0;
             while (count < gridOfLights[xMainLight][yMainLight].getTheGroup().getTheNbOfAdjacentLights()) {
-                if (((xMainLight + 1) >= 0) && ((xMainLight + 1) <= NB_LINES)) {
+                if (((xMainLight + 1) >= 0) && ((xMainLight + 1) <= NB_LINES - 1)) {
                     swap(xMainLight + 1, yMainLight);
                     count++;
                 }
-                if (((xMainLight - 1) >= 0) && ((xMainLight - 1) <= NB_LINES)) {
+                if (((xMainLight - 1) >= 0) && ((xMainLight - 1) <= NB_LINES - 1)) {
                     swap(xMainLight - 1, yMainLight);
                     count++;
                 }
-                if (((yMainLight + 1) >= 0) && ((yMainLight + 1) <= NB_COLUMNS)) {
+                if (((yMainLight + 1) >= 0) && ((yMainLight + 1) <= NB_COLUMNS - 1)) {
                     swap(xMainLight, yMainLight + 1);
                     count++;
                 }
-                if (((yMainLight - 1) >= 0) && ((yMainLight - 1) <= NB_COLUMNS)) {
+                if (((yMainLight - 1) >= 0) && ((yMainLight - 1) <= NB_COLUMNS - 1)) {
                     swap(xMainLight, yMainLight - 1);
                     count++;
                 }
@@ -165,7 +165,11 @@ public class Grid {
     	}
     	return true;
     }
-
+    
+    /**
+     * Convert the grid on String to allow to the console to display it.
+     */
+    
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
