@@ -1,6 +1,10 @@
 package IHM;
 
+
+import  javax.swing.*;
+import  java.awt.*;
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,6 +15,7 @@ import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JSplitPane;
 import javax.swing.SwingConstants;
@@ -26,8 +31,8 @@ public class Task implements Runnable, ActionListener, KeyListener {
 	/**
 	 * The Grid
 	 */
-	private PanelGridGame Grid;
-	
+	private PanelGridGame grid;
+		
 	public void initializeFrame(){
 		//Initialize Frame
 		this.window = new JFrame();
@@ -35,20 +40,15 @@ public class Task implements Runnable, ActionListener, KeyListener {
 		this.window.setTitle("Turn Off Lights");
 		this.window.setSize(600, 600);
 		this.window.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-		//Initialize Grid
-		this.window.setLayout(new GridLayout(5, 5));
 		
-		//Add buttons into grid
-		for (int i = 0; i < 5; i++){
-			for (int j = 0; j < 5; j++){
-				this.window.getContentPane().add(new Button(i, j));
+		
+        PanelGridGame grid = new PanelGridGame();
+		this.window.setContentPane(grid);
+        this.window.setVisible(true);
 		//TODO lien controleur
 				
 		this.window.setVisible(true);
 		
-		//Add label on buttons
-			}
-		}
 	}
 
 	@Override
